@@ -1,0 +1,11 @@
+# 비밀값(API 키 등)은 저장소에 올리지 않는다
+.env
+.env.*
+!.env.example
+# 설치·빌드 결과물
+node_modules/
+dist/
+build/
+# 운영체제가 만드는 파일
+.DS_Store
+Thumbs.db
