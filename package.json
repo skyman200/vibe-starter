@@ -1,0 +1,17 @@
+{
+  "name": "vibe-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "프론트엔드(public/)와 백엔드(server.js)로 된 웹앱",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

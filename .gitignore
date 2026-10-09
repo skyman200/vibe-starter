@@ -2,10 +2,12 @@
 .env
 .env.*
 !.env.example
-# 설치·빌드 결과물
+# 설치·빌드 결과물(npm install 이 다시 만든다)
 node_modules/
 dist/
 build/
+# 서버가 실행 중에 쓰는 데이터(처음 데이터는 data/seed.json)
+data/db.json
 # 운영체제가 만드는 파일
 .DS_Store
 Thumbs.db

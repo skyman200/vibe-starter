@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>앱 이름</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>앱 이름</h1>
+    <form id="add-form">
+      <input id="name" placeholder="새 항목 이름" aria-label="새 항목 이름">
+      <button type="submit">추가</button>
+    </form>
+    <p id="status"></p>
+    <ul id="list"></ul>
+  </main>
+  <!-- 화면 동작(프론트엔드). 데이터는 서버(server.js)의 API(/api/items)에서 받아 온다.
+       이 파일을 더블클릭해서 열면 API 를 부를 수 없다 — 서버를 켜고(npm run dev) http://localhost:3000 으로 연다. -->
+  <script src="app.js"></script>
+</body>
+</html>
