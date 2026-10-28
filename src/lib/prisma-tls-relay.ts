@@ -50,6 +50,10 @@ export function relayThroughVerifiedTls(datasourceUrl: string): string {
           : `DIRECT_URL 서버에 연결하지 못했습니다(${code(error)}).`,
       ),
     );
+    // Closed before the TLS request was answered (no reply and no error).
+    upstream.once('close', () => {
+      if (!secure) close('DIRECT_URL 서버가 응답 없이 연결을 끊었습니다.');
+    });
     upstream.once('connect', () => upstream.write(SSL_REQUEST));
     upstream.once('data', (reply) => {
       // Only 'S' may arrive before TLS starts; anything else is refused.
@@ -66,6 +70,8 @@ export function relayThroughVerifiedTls(datasourceUrl: string): string {
           servername: isIP(host) ? undefined : host,
           ca,
           minVersion: 'TLSv1.2',
+          // Always verify, even when NODE_TLS_REJECT_UNAUTHORIZED=0 is set.
+          rejectUnauthorized: true,
         });
       } catch (error) {
         close(`TLS 연결을 시작하지 못했습니다(${code(error as Error)}).`);
